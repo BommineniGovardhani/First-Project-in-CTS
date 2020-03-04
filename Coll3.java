@@ -1,13 +1,8 @@
-/* arraylist of string type which has name#mark1#mark2#mark3 format. retrieve the name of the student who has scored max marks(total of three) 
-input:{"arun#12#12#12","deepak#13#12#12"} 
-output:deepak 
-Hint:Map<String, Integer> =new HashMap<String, Integer>()
-*/ 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.StringTokenizer;
- class Coll3 {
+ class Save {
       public static String max(String[] s1){
             Map m1 = new HashMap();
             for(int i = 0;i < s1.length;i++){

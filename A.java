@@ -1,32 +1,19 @@
-abstract class AirPlane 
-{ 
-abstract void fly(); 
-void land()
- { 
- System.out.print("Landing.."); 
-}
- }
-abstract class AirJet extends AirPlane
- {
- AirJet() 
-{
- super(); 
-}
- void fly() 
-{
- System.out.print("Flying.."); 
-}
- abstract void land() ; 
-} 
-abstract class A{
-public static void main(String args[])
-{
-AirPlane a=new AirPlane();
-a.fly();
-}
-}
+import java.util.*;
+import java.util.Arrays;
 
-
-
-/* OutPut:  AirJet.java:9: error: AirJet is not abstract and does not override abstract method land() in AirJet
- class AirJet extends AirPlane */
+public class A {
+	public static void main(String args[]){
+		TreeSet<Integer> i=new TreeSet<Integer>();
+		i.add(1);
+		i.add(2);
+		i.add(3);
+		i.add(4);
+		
+		//System.out.println(i.pollFirst());
+		//System.out.println(i.pollLast());
+		System.out.println(i.tailSet(3));	
+		System.out.println(i.headSet(3));
+		System.out.println(i);
+	}
+		
+	}
