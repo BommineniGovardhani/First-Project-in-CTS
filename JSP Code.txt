@@ -1,0 +1,308 @@
+<HTML>
+<BODY>
+Hello BeginnersBook Readers! 
+Current time is: <%= new java.util.Date() %>
+</BODY>
+</HTML>
+===============================================================================
+<body bgcolor="orange" text="white">
+<jsp:useBean id="b1" class="com.test.Product" scope="session"/>
+<jsp:setProperty name="b1" property="productno" param="a1"/>
+<jsp:setProperty name="b1" property="productname" param="b1"/>
+<h1>Pno:</h1>
+<jsp:getProperty name="b1" property="productno" />
+<h1>PName</h1>
+<jsp:getProperty name="b1" property="productname" /><p>
+<a href="Bean3.jsp">Next page</a>
+
+</body>
+===============================================================================
+<body bgcolor="blue" text="white">
+<jsp:useBean id="b1" class="com.test.Product" scope="session"/>
+<jsp:getProperty name="b1" property="productno" />
+<jsp:getProperty name="b1" property="productname" />
+</body>
+===============================================================================
+<body bgcolor="pink" text="green">
+<jsp:useBean id="b1" class="com.test.Product" scope="session"/>
+<jsp:setProperty name="b1" property="*"/>
+<jsp:getProperty name="b1" property="productno"/>
+<jsp:getProperty name="b1" property="productname"/>
+Pno:<%=b1.getProductno() %>
+PName:<%=b1.getProductname() %>
+</body>
+==============================================================================
+<body bgcolor="pink" text="blue">
+<form action="EL3.jsp" method="post">
+User name:<input type="text" name="a1"><p>
+Prefered Location:
+<input type="checkbox" name="c1" value="hyd">Hyd<p>
+<input type="checkbox" name="c1" value="pune">pune<p>
+<input type="submit" value="submit">
+</form>
+============================================================================
+<body bgcolor="yellow" text="blue">
+Name(using dot):${param.a1}<p>
+Name(using array):${param["a1"]}
+<p>
+Location:${paramValues.c1[0]}
+${paramValues.c1[1]}
+===========================================================================
+<body bgcolor="yellow" text="blue">
+<form action="EL6.jsp" method="post">
+
+Product no:<input type="text" name="pno"><p>
+Product name:<input type="text" name="pname"><p>
+<input type="submit" value="submit">
+</p>
+</form>
+===============================================================================
+<jsp:useBean id="b1" class="com.test.Product" scope="request"></jsp:useBean>
+<jsp:setProperty name="b1" property="productno" value="${param.pno}"/>
+<jsp:setProperty name="b1" property="productname" value="${param.pname}"/>
+<p>Pno(using EL):${b1.productno}
+<p>Pno(using Expression Getter):<%=b1.getProductno() %>
+<p>Pno(using get Property):<jsp:getProperty name="b1" property="productno"/>
+<p>Pname:${b1.productname}
+===============================================================================
+<%@ page isELIgnored="false"%>
+<!-- isELIgnored="true"..is not allow the EL that means is should not suffort the EL just Print the 
+html data...isELIgnored="false" is allow the EL -->
+${10+10}
+================================================================================
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cts"%>
+<cts:out value="hii"/>
+================================================================================
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<sql:setDataSource 
+var="snapshot"
+driver="com.mysql.jdbc.Driver"
+url="jdbc:mysql://localhost/test"
+user="root" password="Hanuman@456"/>
+<sql:query dataSource="${snapshot}" var="res">
+select * from emp2 where Salary>1000
+</sql:query>
+<table border="1">
+<tr><th>Eno</th><th>Name</th><th>Salary</th></tr>
+<c:forEach var="row1" items="${res.rows}">
+<tr>
+<td><c:out value="${row1.Eno}" /></td>
+<td><c:out value="${row1.Name}" /></td>
+<td><c:out value="${row1.Salary}" /></td>
+</tr>
+</c:forEach>
+</table>
+===========================================================================
+
+<%@taglib
+uri="http://java.sun.com/jsp/jstl/core" prefix="cts"%>
+<cts:out value="DONT SLEEP!"/>
+<cts:set var="a" value="Hello Students!!!"/>
+<cts:out value="${a}"/>
+<cts:forEach var="n" begin="3" end="8" step="2">
+<cts:out value="${n}"/>
+<br>
+</cts:forEach>
+
+<cts:set var="loc" value="chennai"/>
+<cts:if test="${loc=='chennai'}" var="b">
+<p>My Location is<cts:out value="${loc}"/>
+<p>Result:<cts:out value="${b}"/></p></cts:if>
+===========================================================================
+<%!
+int c=10;
+public void jspInit()
+{
+System.out.println("Init");
+}
+%>
+<%
+System.out.println("sevice");
+c++;
+%>
+this is page has been called:<%=c %>times
+<%!
+public void jspDestroy()
+{
+System.out.println("destroy");
+}
+%>
+=============================================================================
+<%@page
+import="java.sql.*,java.util.*"
+language="java"
+info="Simple JSP Page"
+buffer="1kb" autoFlush="false" 
+contentType="text/html"%>
+
+<jsp:directive.page import="com.test.Product"/>
+
+<%
+out.println("<h1>Date:"+new java.util.Date());
+out.println("<h1>Sqrt(25): "+Math.sqrt(25));
+Product obj=new Product();
+obj.setProductno(1001);
+obj.setProductname("Dell Laptop");
+out.println("View:"+obj.getProductno()
++ " "+obj.getProductname());
+%>
+=================================================================================
+<body bgcolor="pink" text="blue">
+${10+10}<p>
+${10 ge 10}<p>
+${10 < 10}<p>
+${10 lt 10}<p>
+${header["host"]}
+${"Welcome"}
+<%
+session.setAttribute("name","gova");
+%>
+session value:${sessionScope.name}
+===============================================================================
+<form action="Error2.jsp" method="post">
+Enter first number:
+<input type=text name="a"><p>
+Enter second number:
+<input type=text name="b"><p>
+<input type=submit value=click>
+</form>
+===========================================================================
+<%@page errorPage="UserError.jsp"%>
+<%
+int a1=Integer.parseInt(request.getParameter("a"));
+int b1=Integer.parseInt(request.getParameter("b"));
+out.println("Answer is: "+a1/b1);
+%>
+===========================================================================
+<%
+out.println(request.getParameter("user"));
+%>
+==========================================================================
+<body bgcolor="pink">
+<form action="Forward2.jsp" method="post">
+Enter name:
+<input type=text name="a1">
+<input type=submit value=submit>
+</form> 
+</body>
+==========================================================================
+
+<%
+if((request.getParameter("a1")).equals("Hi"))
+{
+%>
+<jsp:forward page="For1.jsp">
+<jsp:param name="user" value="welcome"></jsp:param>
+</jsp:forward>
+<%
+}
+else
+{
+%>
+<jsp:forward page="For2.jsp">
+<jsp:param name="user1" value="invalid"></jsp:param>
+</jsp:forward>
+<%
+}
+%>
+========================================================================
+<h1>
+Old Content</h1>
+<% out.println(request.getParameter("Company")+" "+request.getParameter("Time"));
+%>
+========================================================================
+
+<body bgcolor="yellow" text="white">
+<%@include file="Sample.jsp" %>
+<h1>next....!!!</h1>
+<jsp:include page="Inc1.jsp"/>
+<jsp:include page="Inc1.jsp">
+<jsp:param value="Cts" name="Company"/>
+<jsp:param value="9.00" name="Time"/>
+</jsp:include>
+</body>
+=======================================================================
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="cts"%>
+<cts:out value="hii"/>
+=======================================================================
+<body bgcolor=yellow>
+<%!
+int a=1000;
+int add(int n,int m)
+{
+return n+m;
+}
+%>
+<%!
+int sub(int n,int m)
+{
+return n-m;
+}
+%>
+<%
+int a1=10;
+int a=100;
+out.println("<h1> Hello</h1>");
+out.println(a+" "+a1);
+out.println("<h1> add:"+add(10,10));
+%>
+<%
+out.println("sub: "+sub(10,2));
+%>
+Add:<%= 10+18 %>
+<%="<bgcolor=red>Hiii" %>
+<%=a %>
+Add method<%=add(20,20) %>
+Sub method<%=sub(20,20) %>
+======================================================================
+<body bgcolor=pink>
+<jsp:declaration>
+int a=10;
+
+</jsp:declaration>
+<jsp:scriptlet>
+int a=5;
+out.println("sub");
+out.println(a);
+</jsp:scriptlet>
+int a=4;
+<jsp:expression>
+"value:"+a
+</jsp:expression>
+
+ =======================================================================
+<form action="Session2.jsp" method="post">
+Name:<input type=text name="n1"/><p>
+Password:<input type=password name="n2"/><p>
+<input type=submit value="Login"/>
+
+</form>
+=====================================================================
+<%@page session="true" %>
+<% 
+out.println("Session object:"+session);
+String userName=request.getParameter("n1");
+String password=request.getParameter("n2");
+session.setAttribute("SessionUser",userName);
+session.setAttribute("SessionPassword",password);
+out.println("<h1> Welcome"+userName+"!!!!");
+out.println("<a href=Session3.jsp>Next Page</a>");
+%>
+
+=======================================================================
+<%
+String username=(String)session.getAttribute("SessionUser");
+String password=(String)session.getAttribute("SessionPassword");
+out.println("<h1>hii"+username);
+out.println("<h1>your password"+password);
+session.invalidate();
+out.println("<a href=Session1.jsp>Back</a>");
+%>
+=====================================================================
+<%@page isErrorPage="true" %>
+<body bgcolor="pink">
+<h1>
+Exception: <%=exception.toString() %></h1>
+<h1>Exception class:<%=exception.getClass() %></h1>
+</body>
