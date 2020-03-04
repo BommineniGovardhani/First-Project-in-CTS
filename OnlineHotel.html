@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-color:Cyan;}
+img{background-position:left top;
+background-attachment:fixed;
+width:40%;
+height:50%;
+}
+
+ table,th,td { align:center;
+     text-color:DARKSALMON;
+color:blue;
+font-size:20px;
+      }
+.button
+{
+  width: 100px;
+  text-align: center;
+  margin:0 auto;
+
+}
+
+background-color: yellow ;}
+
+ 
+</style>
+<title>Online Hotel Information</title>
+<link rel="icon" href="form.jpg" type="image/gif">
+
+</head>
+
+<center>
+
+<body>
+<img align="left" src="online.png">
+<table style="font-color:blue">
+<script type="text/javascript">
+	function validate()
+	{
+		var name=document.myform.name.value;
+	var pswd1=document.myform.pwd1.value;
+	var pswd2=document.myform.pwd2.value;
+	var v= pswd1.length;
+	var v1=pswd2.length;
+
+	if(name==null || name=="")
+			{
+				alert("User name required");
+				return false;
+
+			}
+	if(pswd1==null || pswd1=="")
+	{
+		alert("Password can't be null");
+		return false;
+	}
+
+	else if((v!=v1)||(v<8 && v1<8))
+	{
+		alert("Password must be same and should have 8 charecters and your Password have "+ v +"characters");
+		return false;
+	}
+	
+	
+}
+
+</script>
+
+<form action="OnlineHotel.html" method="post" name="myform" onsubmit="return validate()">
+<h1 style="color:Magenta;""font-size:40px;">Online Hotel Information System</h1>
+	 <table>
+	 	<tr>
+	 		<td>Email Id</td>
+	 		<td><input type="email" name="name"></td>
+	 	</tr>
+	<tr>
+	 		<td>User Name</td>
+	 		<td><input type="text" name="name"></td>
+	 	</tr>
+	 	<tr>
+	 		<td>Password</td>
+	 		<td><input type="Password" name="pwd1" pattern="[a-zA-Z][a-zA-Z0-9]+" ></td>
+	 	</tr>
+	 	<tr>
+	 		<td>Retype Password</td>
+	 		<td><input type="Password" name="pwd2" pattern="[a-zA-Z][a-zA-Z0-9]+"></td>
+	 	</tr>
+	 	<tr>
+	 		<td>Address</td>
+	 		<td><input type="text" name="" maxlength="250" ></td>
+	 	</tr>
+	 	 <tr><td> <u style="font-size:18px" "color:red";>Phone Number:</u> </td>
+<tr><td>Mobile:</td><td> <input type="number" name="number" max-length="10" size="10"></td></tr>
+<td>LandLine: </td><td><input type="number" name="number"max-length="10" size="10"></td></tr>
+</TABLE>
+<br/>
+<form action="submit1.html" > 
+<form >  
+  <input type="image" value="Submit" src="sub.jpg" border="1" alt="Submit" style="width: 55px; height:35px;" />
+<input type="image" name="name" src="re.jpg" border="1px " border-style: "solid";
+  border-color: "red"; alt="reset" style="width: 55px; height:35px;" />
+
+</form>
+</form>
+
+<br/<br/>
+<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<br/<br/>
+<footer style="background-color: LawnGreen;""font-color:white;""font-size:20px;">
+  
+  <p>“This website and its content is copyright of User Registration Screen”.</p>
+</footer>
+</center>
+</body>
+</html>
