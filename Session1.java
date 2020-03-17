@@ -2,9 +2,9 @@ package com.test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Session1
  */
-@WebServlet("/Session1")
 public class Session1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,20 +28,14 @@ public class Session1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
-	    HttpSession session = 
-	    		request.getSession(false);
-	    out.println("Session Value: " +session);
-
-		out.print("<BODY bgcolor=lightblue><h1>Online Shopping</h1>");
-	    out.print("<FORM METHOD=post ACTION=Session2>");
-	    out.print("<INPUT TYPE=SUBMIT NAME=foo VALUE=PEPSI>");
-	    out.print("<INPUT TYPE=SUBMIT NAME=bar VALUE=\"Put a MIRINDA into the shopping cart\">");
-	    out.print("<INPUT TYPE=SUBMIT NAME=see VALUE=\"View the shopping cart\">");
-	    out.print("<INPUT TYPE=SUBMIT NAME=buy VALUE=\"Buy the shopping cart\">");
-
+		PrintWriter out=response.getWriter();
+		out.println("<BODY bgcolor=pink>"+"<h1>session timer</h1>");
+		HttpSession session=request.getSession();
+		out.println("<h1>Session:"+session);
+		out.println("</h2>Previous time out:"+session.getMaxInactiveInterval());
+		out.println("</h1>time"+new Date());
+		session.setMaxInactiveInterval(10);
+out.println("<h1>newly changed time"+"time out is"+session.getMaxInactiveInterval());		
 	}
 
 	/**

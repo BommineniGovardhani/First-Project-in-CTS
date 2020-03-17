@@ -1,36 +1,27 @@
-import java.util.*;
-class Bank{
-static String AcctNo;
-static float balance;
-static String AcctType; 
-Bank(String AcctNo,float balance,String AcctType){
-this.AcctNo=AcctNo;
-this.balance=balance;
-this.AcctType=AcctType;
+package com.test;
 
-}
-public static void AccountDetails(float depositAmount,float withdrawAmount)
-{
-float acc=depositAmount-withdrawAmount;
-System.out.println("Remaining Balance: "+acc);
-}
+public class Bank {
+	String name;
+	String mname;
+	Banch b1;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getMname() {
+		return mname;
+	}
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+	public Banch getB1() {
+		return b1;
+	}
+	public void setB1(Banch b1) {
+		this.b1 = b1;
+	}
+	
 
-
-
-
-
-public static void main(String[] args)
-{
-Scanner sc=new Scanner(System.in);
-
-
-Bank b1=new Bank(sc.nextLine(),sc.nextFloat(),sc.next());
-System.out.println("Account number :"+b1.AcctNo+","+"Balance :"+b1.balance+","+"Account Type:"+b1.AcctType);
-System.out.println("enter Deposit Amount");
-float depositAmount=sc.nextFloat();
-System.out.println("enter Withdraw Amount ");
-float withdrawAmount=sc.nextFloat();
-
-b1.AccountDetails(depositAmount,withdrawAmount);
-}
 }

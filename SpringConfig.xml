@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+
+<!--  
+
+<bean id = "helloWorld" class = "com.test.HelloWorld">
+      <property name = "message" value = "Hello World!"/>
+   </bean>
+<bean id="myaddress" class="com.test.Address" >
+<constructor-arg value="chennai"></constructor-arg>
+<constructor-arg value="India"></constructor-arg>
+
+</bean>
+<bean id="myemployee4" class="com.test.EmployeeBean">
+	<constructor-arg value="10002" type="int"></constructor-arg>
+	<constructor-arg value="gova"></constructor-arg>
+	<constructor-arg>
+		<ref bean="myaddress"/>
+	</constructor-arg>
+
+</bean>
+<bean id="stu" class="com.test.Student" >
+
+<property name="id" value="100"/>
+<property name="name" value="gova"/>
+</bean>
+<bean id="course1" class="com.test.Student_Cource" parent="stu">
+<property name="name" value="govardhani"/>
+<property name="cid" value="100"/>
+<property name="cname" value="Ram"/>
+
+</bean>
+  
+<context:property-placeholder location="classpath:SpringUser.properties"/>
+<bean id="p1" class="com.test.User_Properties" >
+<property name="name" value="${u1}"></property>
+<property name="role" value="${r1}"></property>
+<property name="email" value="${e1}"></property>
+
+</bean>
+
+<bean id="b11" class="com.test.Banch">
+<property name="city" value="chennai"/>
+<property name="capital" value="tm"/>
+</bean>
+<bean id="bref" class="com.test.Bank">
+<property name="name" value="ram"/>
+<property name="mname" value="Sam"></property>
+<property name="b1" ref="b11"></property>
+</bean>
+<bean id="b1" class="com.test.Banch">
+<property name="city" value="chennai"/>
+<property name="capital" value="tm"></property>
+
+</bean>
+<bean id="bref1" class="com.test.Bank" autowire="byName">
+<property name="name" value="ram"/>
+<property name="mname" value="Sam"></property>
+</bean>
+<bean id="myemployee2" class="com.test.EmployeeBean" autowire="constructor">
+<constructor-arg value="1" type="int"></constructor-arg>
+<constructor-arg value="hii"></constructor-arg>
+</bean>
+<bean id="b18" class="com.test.Banch">
+<property name="city" value="Bng"></property>
+<property name="capital" value="India"></property>
+</bean>
+<bean id="auto" class="com.test.Bank_AutoWire">
+<property name="name" value="SBI"></property>
+<property name="mname" value="Raja"></property>
+</bean>
+<bean id="obj1" class="com.test.Vendor_Collection">
+<property name="vid" value="100"></property>
+<property name="vendorname" value="BLT"></property>
+<property name="cus_name">
+
+ <set>
+<value>CTS</value>
+<value>CTS</value>
+<value>CTS</value>
+<value>CTS</value>
+</set>
+</property>
+</bean>
+<bean id="tr1" class="com.test.Technology_coll">
+<property name="technology" value="Stage-1"></property>
+<property name="assesment" value="NO"></property>
+</bean>
+<bean id="tr2" class="com.test.Technology_coll">
+<property name="technology" value="Stage-2"></property>
+<property name="assesment" value="NO"></property>
+</bean>
+<bean id="tco1" class="com.test.Training_Collection">
+<property name="batchno" value="2"></property>
+<property name="projectname" value="AVM"></property>
+<property name="tc1">
+<list>
+<ref bean="tr1"/>
+<ref bean="tr2"/>
+</list>
+</property>
+</bean>
+<bean id="in" class="com.test.Assessment_MapCollection">
+<property name="sid" value="101"></property>
+<property name="sname" value="gova"></property>
+<property name="test_details">
+<map>
+<entry key="sspdl" value="training"></entry>
+<entry key="asv" value="training"></entry>
+<entry key="Blt" value="training"></entry>
+<entry key="ss" value="training"></entry>
+</map>
+</property>
+</bean>
+
+<bean id="q" class="com.test.Vendor_Constuctor">  
+<constructor-arg value="111" type="int"></constructor-arg>  
+<constructor-arg value="Company"></constructor-arg>  
+<constructor-arg>  
+<set>  
+<value>CTS</value>  
+<value>Tcs</value>  
+<value>Acc</value>  
+</set>  
+</constructor-arg>  
+</bean>  
+-->
+<context:property-placeholder location="classpath:mydp.properties"/>
+<bean id="dataSource"
+class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+<property name="driverClassName" value="${driver1}"></property>
+<property name="url" value="${dburl1}"></property>
+<property name="username" value="${dbuser1}"></property>
+<property name="password" value="${dbpassword1}"></property>
+</bean>
+<bean id="mydatabase" class="com.dao.Employee_JdbcTemplate1">
+<property name="datasource" ref="dataSource">
+</property>
+</bean>
+<!-- automatically scan all the classesinside the package,which are marked with 
+@component annotation   no need of seperate xml ,no sring configuration is requered -->
+<context:component-scan base-package="com.test"></context:component-scan>
+
+
+ </beans>

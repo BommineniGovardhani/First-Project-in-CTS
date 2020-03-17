@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>CTS_Servlet</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>FirstServlet2</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -10,29 +10,158 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>InitParaWebxml</servlet-name>
-    <servlet-class>com.test.InitParaWebxml</servlet-class>
+    <description></description>
+    <display-name>Ab</display-name>
+    <servlet-name>Ab</servlet-name>
+    <servlet-class>Ab</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ab</servlet-name>
+    <url-pattern>/Ab</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <servlet-name>GetParam1</servlet-name>
+    <servlet-class>GetParam1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetParam1</servlet-name>
+    <url-pattern>/GetParam1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sample</display-name>
+    <servlet-name>Sample</servlet-name>
+    <servlet-class>Sample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sample</servlet-name>
+    <url-pattern>/Sample</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sample2</display-name>
+    <servlet-name>Sample2</servlet-name>
+    <servlet-class>Sample2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sample2</servlet-name>
+    <url-pattern>/Sample2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Sample3</display-name>
+    <servlet-name>Sample3</servlet-name>
+    <servlet-class>Sample2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Sample3</servlet-name>
+    <url-pattern>/Sample3</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Mail</display-name>
+    <servlet-name>Mail</servlet-name>
+    <servlet-class>Mail</servlet-class>
+  </servlet>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/CustomError.html</location>
+  </error-page>
+  <servlet-mapping>
+    <servlet-name>Mail</servlet-name>
+    <url-pattern>/Mail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Jdbc</display-name>
+    <servlet-name>Jdbc</servlet-name>
+    <servlet-class>Jdbc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jdbc</servlet-name>
+    <url-pattern>/Jdbc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Jdbcweb</display-name>
+    <servlet-name>Jdbcweb</servlet-name>
+    <servlet-class>Jdbcweb</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jdbcweb</servlet-name>
+    <url-pattern>/Jdbcweb</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConfigInit1</display-name>
+    <servlet-name>ConfigInit1</servlet-name>
+    <servlet-class>ConfigInit1</servlet-class>
     <init-param>
-      <param-name>EmpName</param-name>
-      <param-value>Govardhani</param-value>
+      <description></description>
+      <param-name>Company</param-name>
+      <param-value>CTS</param-value>
     </init-param>
     <init-param>
-      <param-name>EmpDept</param-name>
-      <param-value>Application</param-value>
+      <description></description>
+      <param-name>Venue</param-name>
+      <param-value>Chennai</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>InitParaWebxml</servlet-name>
-    <url-pattern>/InitParaWebxml</url-pattern>
+    <servlet-name>ConfigInit1</servlet-name>
+    <url-pattern>/ConfigInit1</url-pattern>
   </servlet-mapping>
-  <context-param>
-    <param-name>Tip1</param-name>
-    <param-value>Learning</param-value>
-  </context-param>
-  <context-param>
-    <param-name>Tip2</param-name>
-    <param-value>Got good Result</param-value>
-  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>Config1</display-name>
+    <servlet-name>Config1</servlet-name>
+    <servlet-class>Config1</servlet-class>
+    <init-param>
+      <description></description>
+      <param-name>Company</param-name>
+      <param-value>CTS</param-value>
+    </init-param>
+    <init-param>
+      <description></description>
+      <param-name>Venue</param-name>
+      <param-value>Chennai</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Config1</servlet-name>
+    <url-pattern>/Config1</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Configinit</display-name>
+    <servlet-name>Configinit</servlet-name>
+    <servlet-class>com.test.Configinit</servlet-class>
+    <init-param>
+      <description></description>
+      <param-name>Company</param-name>
+      <param-value>CTS</param-value>
+    </init-param>
+    <init-param>
+      <description></description>
+      <param-name>Venue</param-name>
+      <param-value>Chennai</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Configinit</servlet-name>
+    <url-pattern>/Configinit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Tesk1</display-name>
+    <servlet-name>Tesk1</servlet-name>
+    <servlet-class>com.test.Tesk1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tesk1</servlet-name>
+    <url-pattern>/Tesk1</url-pattern>
+  </servlet-mapping>
   <context-param>
     <param-name>url</param-name>
     <param-value>jdbc:mysql://localhost:3306/task</param-value>
@@ -45,4 +174,17 @@
     <param-name>password</param-name>
     <param-value>Hanuman@456</param-value>
   </context-param>
+  <servlet>
+    <description></description>
+    <display-name>Session1</display-name>
+    <servlet-name>Session1</servlet-name>
+    <servlet-class>com.test.Session1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Session1</servlet-name>
+    <url-pattern>/Session1</url-pattern>
+  </servlet-mapping>
+  <session-config>
+  <session-timeout>10</session-timeout>
+  </session-config>
 </web-app>
