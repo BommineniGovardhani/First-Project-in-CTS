@@ -1,29 +1,18 @@
-<body bgcolor=yellow>
-<%!
-int a=1000;
-int add(int n,int m)
-{
-return n+m;
-}
-%>
-<%!
-int sub(int n,int m)
-{
-return n-m;
-}
-%>
+<%@page
+import="java.sql.*,java.util.*"
+language="java"
+info="Simple JSP Page"
+buffer="1kb" autoFlush="false" 
+contentType="text/html"%>
+
+<jsp:directive.page import="com.test.Product"/>
+
 <%
-int a1=10;
-int a=100;
-out.println("<h1> Hello</h1>");
-out.println(a+" "+a1);
-out.println("<h1> add:"+add(10,10));
+out.println("<h1>Date:"+new java.util.Date());
+out.println("<h1>Sqrt(25): "+Math.sqrt(25));
+Product obj=new Product();
+obj.setProductno(1001);
+obj.setProductname("Dell Laptop");
+out.println("View:"+obj.getProductno()
++ " "+obj.getProductname());
 %>
-<%
-out.println("sub: "+sub(10,2));
-%>
-Add:<%= 10+18 %>
-<%="<bgcolor=red>Hiii" %>
-<%=a %>
-Add method<%=add(20,20) %>
-Sub method<%=sub(20,20) %>
